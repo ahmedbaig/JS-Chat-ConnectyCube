@@ -3,59 +3,63 @@ var global_username = '';
 
 /*** After successful authentication, show user interface ***/
 
-var showUI = function() {
+var showUI = function () {
 	$('div#call').show();
 	$('form#userForm').css('display', 'none');
 	$('div#userInfo').css('display', 'inline');
 	$('h3#login').css('display', 'none');
+	$('video').show();
 	$('span#username').text(global_username);
 }
 
 
 /*** If no valid session could be started, show the login interface ***/
 
-var showLoginUI = function() {
+var showLoginUI = function () {
 	$('form#userForm').css('display', 'inline');
 }
 
-/*** Set up sinchClient ***/
+
+//*** Set up sinchClient ***/
 
 sinchClient = new SinchClient({
 	applicationKey: '07492c25-f522-47b6-93bc-97a86077a992',
-	capabilities: {calling: true},
-	startActiveConnection: true, /* NOTE: This is required if application is to receive calls / instant messages. */ 
+	capabilities: { calling: true, video: true },
+	supportActiveConnection: true,
 	//Note: For additional loging, please uncomment the three rows below
-	onLogMessage: function(message) {
-		console.log(message);
-	},
+	// onLogMessage: function (message) {
+	// 	console.log(message);
+	// },
 });
 
+sinchClient.startActiveConnection();
 
 /*** Name of session, can be anything. ***/
 
-var sessionName = 'sinchSessionWEB-' + sinchClient.applicationKey;
+var sessionName = 'sinchSessionVIDEO-' + sinchClient.applicationKey;
 
 
 /*** Check for valid session. NOTE: Deactivated by default to allow multiple browser-tabs with different users. ***/
 
-var sessionObj = JSON.parse(localStorage[sessionName] || '{}');
-if(false && sessionObj.userId) { 
-	sinchClient.start(sessionObj)
-		.then(function() {
-			global_username = sessionObj.userId;
-			//On success, show the UI
-			showUI();
-			//Store session & manage in some way (optional)
-			localStorage[sessionName] = JSON.stringify(sinchClient.getSession());
-		})
-		.fail(function() {
-			//No valid session, take suitable action, such as prompting for username/password, then start sinchClient again with login object
-			showLoginUI();
-		});
-}
-else {
-	showLoginUI();
-}
+showLoginUI();
+// var sessionObj = JSON.parse(localStorage[sessionName] || '{}');
+// if (sessionObj.userId) {
+// 	sinchClient.start(sessionObj)
+// 		.then(function () {
+// 			global_username = sessionObj.userId;
+// 			//On success, show the UI
+// 			showUI();
+// 			//Store session & manage in some way (optional)
+// 			localStorage[sessionName] = JSON.stringify(sinchClient.getSession());
+// 		})
+// 		.fail(function () {
+// 			//No valid session, take suitable action, such as prompting for username/password, then start sinchClient again with login object
+// 			showLoginUI();
+// 		});
+// }
+// else {
+// 	showLoginUI();
+// }
 
 
 /*** Create user and start sinch for that user and save session in localStorage ***/
@@ -91,7 +95,7 @@ $('button#createUser').on('click', function (event) {
 
 /*** Login user and save session in localStorage ***/
 
-$('button#loginUser').on('click', function(event) {
+$('button#loginUser').on('click', function (event) {
 	event.preventDefault();
 	$('button#loginUser').attr('disabled', true);
 	$('button#createUser').attr('disabled', true);
@@ -102,7 +106,7 @@ $('button#loginUser').on('click', function(event) {
 	signInObj.password = $('input#password').val();
 
 	//Use Sinch SDK to authenticate a user
-	sinchClient.start(signInObj, function() {
+	sinchClient.start(signInObj, function () {
 		global_username = signInObj.username;
 		//On success, show the UI
 		showUI();
@@ -335,4 +339,5 @@ if (location.protocol == 'file:' && navigator.userAgent.toLowerCase().indexOf('c
 }
 
 $('button').prop('disabled', false); //Solve Firefox issue, ensure buttons always clickable after load
+
 
