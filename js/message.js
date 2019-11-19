@@ -285,7 +285,7 @@ Message.prototype.renderMessage = function (message, setAsFirst) {
         });
     } else {
         messageText = message.message ? helpers.fillMessageBody(message.message || '') : helpers.fillMessageBody(message.body || '');
-        console.log(MY_USER)
+        // console.log(MY_USER)
         messagesHtml = helpers.fillTemplate('tpl_message', {
             message: {
                 status: message.status,

@@ -1,7 +1,7 @@
 'use strict';
 
 function Login(сс_users) {
-    this._users = сс_users;
+    // this._users = сс_users;
     this.isLoginPageRendered = false;
     this.isLogin = false;
 }
@@ -42,9 +42,6 @@ Login.prototype.login = function (user) {
                 'login':user.login,
                 'password': user.password
             };
-            // MY_USER = user.login
-            $('#username').val(user.id);
-            $('#password').val(user.password);
             $('button#createUser').trigger('click');
             if (csErr) {
                 loginError(csErr);
@@ -54,6 +51,10 @@ Login.prototype.login = function (user) {
                   if (loginErr) {
                       loginError(loginErr);
                   } else {
+
+                    MY_USER = loginUser.id
+                    $('#username').val(loginUser.id);
+                    $('#password').val(user.password);
                       loginSuccess(loginUser);
                   }
                 });
@@ -81,7 +82,7 @@ Login.prototype.login = function (user) {
 
           self.renderLoginPage();
           console.error(error);
-          alert(error + "\n" + error.detail);
+          alert(error.detail);
           reject(error);
         }
     });
@@ -95,7 +96,7 @@ Login.prototype.renderLoginPage = function(){
 
     app.page.innerHTML = helpers.fillTemplate('tpl_login', {
         version: ConnectyCube.version,
-        users: self._users 
+        // users: self._users 
     });
 
     this.isLoginPageRendered = true;
@@ -115,14 +116,10 @@ Login.prototype.setListeners = function(){
     _.each(loginButtons, function(b){
 
         b.addEventListener('click', function(e){
-
-          var user;
-          _.each(self._users, function(u){
-            if(u.id == e.target.value){
-              user = u;
-            }
-          });
-
+          let user = {
+              'login': document.getElementById('tpl_login_user').value ,
+              'password': document.getElementById('tpl_login_password').value
+          }
           localStorage.setItem('user', JSON.stringify(user));
 
           self.login(user).then(function(){

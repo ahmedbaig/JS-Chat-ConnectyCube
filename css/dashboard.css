@@ -91,11 +91,11 @@
 .sidebar__tab {
     display: inline-block;
     vertical-align: middle;
-    width: 40%;
+    width: 50%;
 }
 
 .sidebar__tab.m-sidebar__tab_new {
-    width: 20%
+    width: 50%
 }
 
 .sidebar__tab_link {
@@ -104,14 +104,14 @@
     line-height: 40px;
     font-weight: 500;
     color: #778594;
-    text-transform: uppercase;
+    text-transform: inherit;
     display: block;
     text-align: center;
 }
 
 .sidebar__tab_link i {
-    display: block;
-    line-height:40px;
+   /* display: block;
+    line-height:40px;*/
 }
 
 .sidebar__tab_link.m-sidebar__tab_link_new {
@@ -333,7 +333,8 @@
 }
 
 .message__text_and_date {
-    display: flex;
+    /*display: flex;*/
+        padding: 0px 25px;
 }
 
 .message__sender_name {

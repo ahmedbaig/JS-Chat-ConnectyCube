@@ -7,11 +7,11 @@
  * 4. Set listeners;
  */
 
-function App(cc_credentials, cc_config, cc_users) {
+function App(cc_credentials, cc_config, cc_users, site) {
     this._cc_credentials = cc_credentials;
     this._cc_config = cc_config;
     this._cc_users = cc_users;
-
+    this._site = site;
     this.user = null;
     this.token = null;
     this.isDashboardLoaded = false;
@@ -37,10 +37,12 @@ App.prototype.init = function (credentials, config, users) {
         throw error;
     }
 
-    if (users.length < 2){
-        var error = "The config.js file should contain at least 2 users. Please go to https://admin<your_app>.connectycube.com and create users in 'Users' module.";
-        alert(error);
-        throw error;
+    if(this._site != "Provider"){
+        if (users.length < 2){
+            var error = "The config.js file should contain at least 2 users. Please go to https://admin<your_app>.connectycube.com and create users in 'Users' module.";
+            alert(error);
+            throw error;
+        }
     }
 
     // Step 1. ConnectyCube SDK initialization.
@@ -242,4 +244,4 @@ App.prototype.checkInternetConnection = function () {
 };
 
 // ConnectyCubeconfig was loaded from config.js file
-var app = new App(CC_CREDENTIALS, CC_CONFIG, CC_USERS);
+var app = new App(CC_CREDENTIALS, CC_CONFIG, CC_USERS, SITE);

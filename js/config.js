@@ -24,6 +24,12 @@ const CC_CONFIG = {
 };
 
 var MY_USER = ""
+const CC_USER = {
+        id:"228032",
+        login: "faraz",
+        full_name: "faraz",
+        password: "123123123"
+    }
 
 const CC_USERS = [ 
     {

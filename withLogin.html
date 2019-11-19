@@ -174,15 +174,18 @@ a:hover {
                    <div class="login__top">
                        <h1>ConnectyCube Chat Sample</h1>
                        <h3>Please choose a user you want to login with</h3>
-                       <h3 class="logging-in-label" style="display: none;">Logging in... please wait</h3>
+   
+
+                       <h3 class="logging-in-label" style="display: none;">Logging in...<img src="img/loader2.gif" alt="wating" style="height: 20px;">
+                    </h3>
                    </div>
-                   <%_.forEach(users, function (u,i) {%>
-                   <%if (u.tag=='Customer') { %>
-                   <button id="login_user" name="login_submit" value="<%= u.id %>" class="btn m-login__button j-login__button">
-                           <%= u.login %>
-                       </button>
-                   <% } %> 
-                   <%})%>
+                    <input type="text" name="login" id="tpl_login_user" placeholder="Enter Login" >
+                    
+                    <input type="password" name="password" id="tpl_login_password" placeholder="Enter Password">
+                   
+                   <button id="login_user" name="login_submit" class="btn m-login__button j-login__button">
+                        Connect
+                    </button>
                </div>
 
                <div class="login__footer" style="display:none">
@@ -641,20 +644,13 @@ margin:0px;
             statsReportTimeInterval: 5
         }
     };
-    const MY_USER = '229476'
+    const SITE = "Provider"
+    var MY_USER = ''
     const CC_USERS = [ 
-    {
-            id:"229476",
-            login: "juliatest@test.com",
-            full_name: "juliatest@test.com",
-            password: "julia1234",
-            tag: "Customer"
-        },  
-        {    id: '229480',
-            login: 'solestage',
-            full_name: 'Solestage',
-            password: 'solestagesply',
-            tag: 'Provider'}
+        {    id: '231383',
+            login: 'admin_team',
+            full_name: 'Admin Team',
+            tag: 'Admin'}
     ];
 
     var appConfig = {
@@ -692,13 +688,8 @@ margin:0px;
     <script src="js/listeners.js" defer></script>
     <script src="js/helpers.js" defer></script>
     <script src="js/app.js" defer></script>
-    <script src="js/login.js" defer></script>
+    <script src="js/login_provider.js" defer></script>
     <script src="js/route.js" defer></script>
     
-    <script type="text/javascript">
-    	$(document).ready(function() {
-            $('button#login_user').trigger('click'); 
-    	})
-    </script>
 </body>
 </html>
