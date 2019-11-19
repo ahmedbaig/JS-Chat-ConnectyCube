@@ -1,7 +1,5 @@
 # Chat code sample for Browser for ConnectyCube platform
 
-This README introduces [ConnectyCube](https://connectycube.com) Chat code sample for Browser
-
 Project contains the following features implemented:
 
 * User authorization
@@ -64,7 +62,3 @@ To make the sample works for your own app, please do the following:
    };
 	```
 4. Run `index.html` and enjoy!
-
-## Can't build yourself?
-
-Got troubles with building React Native code sample? Just create an issue at [Issues page](https://github.com/ConnectyCube/connectycube-js-samples/issues) - we will create the sample for you. For FREE!

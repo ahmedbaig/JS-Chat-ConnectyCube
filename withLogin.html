@@ -38,9 +38,9 @@
         padding: 15px 0px;
     }
 
-.message__sender_and_status{
+/* .message__sender_and_status{
    display: none;
-}
+} */
 .left .message__text_wrap {
    position: relative;
    background: #eff1f0;
@@ -48,6 +48,9 @@
    padding:10px 15px;
    display: inline-block;
    min-width: 400px;
+}
+.left .message__text_wrap .message-status-main .message__status{
+    display: none
 }
 
 .left .message__text_wrap:after {
@@ -360,6 +363,18 @@ width: 100%;
 float: left;
 margin:0px;
 }
+.message__text_wrap {
+       padding-bottom: 20px!important;
+}
+.message__text_wrap .message-status-main{
+position: absolute;
+left: 10px;
+bottom: 5px;
+}
+.myself .message__text_wrap .message-status-main{
+right: 10px;
+left:inherit;
+}
 </style>
 <script type="text/template" id="tpl_message">
    <div class="message__wrap <%= sender.id == me ? 'myself' : 'left' %> "  id="<%= message.id %>" data-status="<%= message.status %>">
@@ -368,34 +383,8 @@ margin:0px;
        </span>
        <div class="message__content">
            <div class="message__sender_and_status">
-               <p class="message__sender_name"><%- sender ? sender.name : 'unknown user (' + message.sender_id + ')' %>, </p>
-               <div class="message__timestamp">
-                   <%= message.date_sent %>
-               </div>
-               <p class="message__status j-message__status">
-
+               <p class="message__sender_name" style="display:none"><%- sender ? sender.name : 'unknown user (' + message.sender_id + ')' %>, </p>
                
-               <% if (message.status == "delivered") { %>
-                   <i class="material-icons" style="font-size: 15px;margin-left: 10px;">
-                       done_all
-                   </i>
-               <% } %>
-               <% if (message.status == "seen") { %>
-                   <i class="material-icons" style="color:green;font-size: 15px;margin-left: 10px;">
-                       done_all
-                   </i>
-               <% } %>
-               <% if (message.status == "not delivered yet") { %>
-                   <i class="material-icons" style="font-size: 15px;margin-left: 10px;">
-                       done
-                   </i>
-               <% } %>
-               <% if (message.status == "not sent") { %>
-                   <i class="material-icons" style="font-size: 15px;margin-left: 10px;">
-                       schedule
-                   </i>
-               <% } %>
-               </p>
            </div>
            <div class="message__text_and_date">
                <div class="message__text_wrap">
@@ -409,8 +398,37 @@ margin:0px;
                        <% }); %>
                    </div>
                    <% } %>
-               </div>
 
+               <span class="message-status-main">
+                    <span class="message__timestamp">
+                         <%= message.date_sent %>
+                    </span>
+                     <p class="message__status j-message__status">
+ 
+                     
+                        <% if (sender.id == me && message.status == "delivered") { %>
+                            <i class="material-icons" style="font-size: 15px;margin-left: 10px;">
+                                done_all
+                            </i>
+                        <% } %>
+                        <% if (sender.id == me && message.status == "seen") { %>
+                            <i class="material-icons" style="color:green;font-size: 15px;margin-left: 10px;">
+                                done_all
+                            </i>
+                        <% } %>
+                        <% if (sender.id == me && message.status == "not delivered yet") { %>
+                            <i class="material-icons" style="font-size: 15px;margin-left: 10px;">
+                                done
+                            </i>
+                        <% } %>
+                        <% if (sender.id == me && message.status == "not sent") { %>
+                            <i class="material-icons" style="font-size: 15px;margin-left: 10px;">
+                                schedule
+                            </i>
+                        <% } %>
+                     </p>
+                 </span>
+               </div>
            </div>
        </div>
    </div>

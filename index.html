@@ -27,142 +27,145 @@
 </head>
 <body>
     
- <style type="text/css">
-    .sply-chat{
-        padding-top: 100px;
-    }
-    .myself .message__timestamp{
-        float: left;
-    }
-    .welcome__message{
-        padding: 15px 0px;
-    }
-
-.message__sender_and_status{
-   display: none;
-}
-.left .message__text_wrap {
-   position: relative;
-   background: #eff1f0;
-   border-radius: .4em;
-   padding:10px 15px;
-   display: inline-block;
-   min-width: 400px;
-}
-
-.left .message__text_wrap:after {
-   content: '';
-   position: absolute;
-   left: 0;
-   top: 50%;
-   width: 0;
-   height: 0;
-   border: 0.844em solid transparent;
-   border-right-color: #eff1f0;
-   border-left: 0;
-   border-top: 0;
-   margin-top: -0.422em;
-   margin-left: -0.844em;
-}
-    .myself  .message__text_wrap {
-   position: relative;
-   background: #d4e6f9;
-   border-radius: .4em;
-   padding:10px 15px;
-   display: inline-block;
-   min-width: 400px;
-}
-
-.myself  .message__text_wrap:after {
-   content: '';
-   position: absolute;
-   right: 0;
-   top: 50%;
-   width: 0;
-   height: 0;
-   border: 0.844em solid transparent;
-   border-left-color: #d4e6f9;
-   border-right: 0;
-   border-top: 0;
-   margin-top: -0.422em;
-   margin-right: -0.844em;
-}
-/*.myself  .message__text_wrap .message__text{
-   color: #fff;
-}
-*/
-.message_feald {
-   border: none;
-   width: 77%;
-   resize: none;
-   padding: 17px 15px;
-   font-size: 14px;
-   line-height: 16px;
-   box-sizing: border-box;
-   font-family: "Roboto", sans-serif;
-   float: left;
-}
-.send_btn { 
-   color: #ffffff; 
-   background: #000;
-   border-radius: 4px;
-   margin-left: 10px;
-   font-size: 14px;
-}
-.attach_btn { 
-   padding-top: 10px;
-}
-.message__actions {
-    
-   width: 22%;
-   float: right;
-   padding: 15px 25px;
-}
-
-.dashboard {
-   max-width: 990px;
-   border-top: none;
-   border: 1px solid #DADFE1;
-   margin: 0 auto;
-   background-color: white;
-   box-sizing: border-box;
-   height: calc(100vh - 160px);
-   display: flex;
-   flex-wrap: nowrap;
-}
-.send_btn {
-       flex: 0 0 38px;
-   cursor: pointer;
-   color: #ffffff;
-   background: transparent;
-   border: none;
-   cursor: pointer;
-   text-transform: uppercase;
-   background: #000;
-   padding: 7px 20px;
-}
-.btn {
-   min-width: 96px;
-   background-color: #000000;
-   border-radius: 2px;
-   font-size: 14px;
-   font-weight: 500;
-   text-align: center;
-   color: #FFFFFF;
-   border: none;
-   text-transform: uppercase;
-   cursor: pointer;
-   padding: 7px 16px;
-   margin: 0px;
-}
-.sidebar__tab_link i {
-   display: none;
-}
-a:hover {
-    
-   text-decoration: none;
-}
-</style>
+        <style type="text/css">
+            .sply-chat{
+                padding-top: 100px;
+            }
+            .myself .message__timestamp{
+                float: left;
+            }
+            .welcome__message{
+                padding: 15px 0px;
+            }
+        
+        /* .message__sender_and_status{
+           display: none;
+        } */
+        .left .message__text_wrap {
+           position: relative;
+           background: #eff1f0;
+           border-radius: .4em;
+           padding:10px 15px;
+           display: inline-block;
+           min-width: 400px;
+        }
+        .left .message__text_wrap .message-status-main .message__status{
+            display: none
+        }
+        
+        .left .message__text_wrap:after {
+           content: '';
+           position: absolute;
+           left: 0;
+           top: 50%;
+           width: 0;
+           height: 0;
+           border: 0.844em solid transparent;
+           border-right-color: #eff1f0;
+           border-left: 0;
+           border-top: 0;
+           margin-top: -0.422em;
+           margin-left: -0.844em;
+        }
+            .myself  .message__text_wrap {
+           position: relative;
+           background: #d4e6f9;
+           border-radius: .4em;
+           padding:10px 15px;
+           display: inline-block;
+           min-width: 400px;
+        }
+        
+        .myself  .message__text_wrap:after {
+           content: '';
+           position: absolute;
+           right: 0;
+           top: 50%;
+           width: 0;
+           height: 0;
+           border: 0.844em solid transparent;
+           border-left-color: #d4e6f9;
+           border-right: 0;
+           border-top: 0;
+           margin-top: -0.422em;
+           margin-right: -0.844em;
+        }
+        /*.myself  .message__text_wrap .message__text{
+           color: #fff;
+        }
+        */
+        .message_feald {
+           border: none;
+           width: 77%;
+           resize: none;
+           padding: 17px 15px;
+           font-size: 14px;
+           line-height: 16px;
+           box-sizing: border-box;
+           font-family: "Roboto", sans-serif;
+           float: left;
+        }
+        .send_btn { 
+           color: #ffffff; 
+           background: #000;
+           border-radius: 4px;
+           margin-left: 10px;
+           font-size: 14px;
+        }
+        .attach_btn { 
+           padding-top: 10px;
+        }
+        .message__actions {
+            
+           width: 22%;
+           float: right;
+           padding: 15px 25px;
+        }
+        
+        .dashboard {
+           max-width: 990px;
+           border-top: none;
+           border: 1px solid #DADFE1;
+           margin: 0 auto;
+           background-color: white;
+           box-sizing: border-box;
+           height: calc(100vh - 160px);
+           display: flex;
+           flex-wrap: nowrap;
+        }
+        .send_btn {
+               flex: 0 0 38px;
+           cursor: pointer;
+           color: #ffffff;
+           background: transparent;
+           border: none;
+           cursor: pointer;
+           text-transform: uppercase;
+           background: #000;
+           padding: 7px 20px;
+        }
+        .btn {
+           min-width: 96px;
+           background-color: #000000;
+           border-radius: 2px;
+           font-size: 14px;
+           font-weight: 500;
+           text-align: center;
+           color: #FFFFFF;
+           border: none;
+           text-transform: uppercase;
+           cursor: pointer;
+           padding: 7px 16px;
+           margin: 0px;
+        }
+        .sidebar__tab_link i {
+           display: none;
+        }
+        a:hover {
+            
+           text-decoration: none;
+        }
+        </style>
 <div class="sply-chat">
 
 <div id="page"></div>
@@ -174,7 +177,7 @@ a:hover {
                    <div class="login__top">
                        <h1>ConnectyCube Chat Sample</h1>
                        <h3>Please choose a user you want to login with</h3>
-                       <h3 class="logging-in-label" style="display: none;">Logging in... please wait</h3>
+                       <h3 class="logging-in-label" style="display: none;">Logging in...<img src="img/loader2.gif" alt="wating" style="height: 20px;"></h3>
                    </div>
                    <%_.forEach(users, function (u,i) {%>
                    <%if (u.tag=='Customer') { %>
@@ -342,77 +345,92 @@ a:hover {
    </div>
 </script>
 <style type="text/css">
-.myself{
-display: inline-block;
-width: 100%;
-}
-.myself .message__avatar  {
-   float:right;
-       flex:38px 0 0 ;
-}
-.myself .message__content{
-   text-align: right;
-}
-.myself  .message__status{
-float: left;
-margin:0px;
-}
-</style>
-<script type="text/template" id="tpl_message">
-   <div class="message__wrap <%= sender.id == me ? 'myself' : 'left' %> "  id="<%= message.id %>" data-status="<%= message.status %>">
-       <span class="message__avatar m-user__img_<%= sender ? sender.color : 'not_loaded' %>">
-           <i class="material-icons">account_circle</i>
-       </span>
-       <div class="message__content">
-           <div class="message__sender_and_status">
-               <p class="message__sender_name"><%- sender ? sender.name : 'unknown user (' + message.sender_id + ')' %>, </p>
-               <div class="message__timestamp">
-                   <%= message.date_sent %>
+    .myself{
+    display: inline-block;
+    width: 100%;
+    }
+    .myself .message__avatar  {
+       float:right;
+           flex:38px 0 0 ;
+    }
+    .myself .message__content{
+       text-align: right;
+    }
+    .myself  .message__status{
+    float: left;
+    margin:0px;
+    }
+    .message__text_wrap {
+           padding-bottom: 20px!important;
+    }
+    .message__text_wrap .message-status-main{
+    position: absolute;
+    left: 10px;
+    bottom: 5px;
+    }
+    .myself .message__text_wrap .message-status-main{
+    right: 10px;
+    left:inherit;
+    }
+    </style>
+    <script type="text/template" id="tpl_message">
+       <div class="message__wrap <%= sender.id == me ? 'myself' : 'left' %> "  id="<%= message.id %>" data-status="<%= message.status %>">
+           <span class="message__avatar m-user__img_<%= sender ? sender.color : 'not_loaded' %>">
+               <i class="material-icons">account_circle</i>
+           </span>
+           <div class="message__content">
+               <div class="message__sender_and_status">
+                   <p class="message__sender_name" style="display:none"><%- sender ? sender.name : 'unknown user (' + message.sender_id + ')' %>, </p>
+                   
                </div>
-               <p class="message__status j-message__status">
-
-               
-               <% if (message.status == "delivered") { %>
-                   <i class="material-icons" style="font-size: 15px;margin-left: 10px;">
-                       done_all
-                   </i>
-               <% } %>
-               <% if (message.status == "seen") { %>
-                   <i class="material-icons" style="color:green;font-size: 15px;margin-left: 10px;">
-                       done_all
-                   </i>
-               <% } %>
-               <% if (message.status == "not delivered yet") { %>
-                   <i class="material-icons" style="font-size: 15px;margin-left: 10px;">
-                       done
-                   </i>
-               <% } %>
-               <% if (message.status == "not sent") { %>
-                   <i class="material-icons" style="font-size: 15px;margin-left: 10px;">
-                       schedule
-                   </i>
-               <% } %>
-               </p>
-           </div>
-           <div class="message__text_and_date">
-               <div class="message__text_wrap">
-                   <% if (message.message) { %>
-                   <p class="message__text"><%= message.message %></p>
-                   <% } %>
-                   <% if (message.attachments.length) { %>
-                   <div class="message__attachments_wtap">
-                       <% _.each(message.attachments, function(attachment){ %>
-                       <img src="<%= attachment.src %>" alt="attachment" class="message_attachment">
-                       <% }); %>
+               <div class="message__text_and_date">
+                   <div class="message__text_wrap">
+                       <% if (message.message) { %>
+                       <p class="message__text"><%= message.message %></p>
+                       <% } %>
+                       <% if (message.attachments.length) { %>
+                       <div class="message__attachments_wtap">
+                           <% _.each(message.attachments, function(attachment){ %>
+                           <img src="<%= attachment.src %>" alt="attachment" class="message_attachment">
+                           <% }); %>
+                       </div>
+                       <% } %>
+    
+                   <span class="message-status-main">
+                        <span class="message__timestamp">
+                             <%= message.date_sent %>
+                        </span>
+                         <p class="message__status j-message__status">
+     
+                         
+                            <% if (sender.id == me && message.status == "delivered") { %>
+                                <i class="material-icons" style="font-size: 15px;margin-left: 10px;">
+                                    done_all
+                                </i>
+                            <% } %>
+                            <% if (sender.id == me && message.status == "seen") { %>
+                                <i class="material-icons" style="color:green;font-size: 15px;margin-left: 10px;">
+                                    done_all
+                                </i>
+                            <% } %>
+                            <% if (sender.id == me && message.status == "not delivered yet") { %>
+                                <i class="material-icons" style="font-size: 15px;margin-left: 10px;">
+                                    done
+                                </i>
+                            <% } %>
+                            <% if (sender.id == me && message.status == "not sent") { %>
+                                <i class="material-icons" style="font-size: 15px;margin-left: 10px;">
+                                    schedule
+                                </i>
+                            <% } %>
+                         </p>
+                     </span>
                    </div>
-                   <% } %>
                </div>
-
            </div>
        </div>
-   </div>
-</script>
-
+    </script>
+    
 <script type="text/template" id="tpl_notificationMessage">
    <div class="message__wrap" id="<%= id %>">
        <p class="m-notification_message"><%= text %></p>
@@ -641,6 +659,7 @@ margin:0px;
             statsReportTimeInterval: 5
         }
     };
+    const SITE = "Provider"
     const MY_USER = '229476'
     const CC_USERS = [ 
     {
